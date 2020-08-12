@@ -140,6 +140,7 @@ class Api extends MY_Controller {
                 'lattitude'           => $user_details->lattitude,
                 'longitude'           => $user_details->longitude,
                 'about'               => $user_details->about,
+                'profile_link'        => $user_details->profile_link,
                 'skills'              => $user_details->skills,
                 'language'            => $user_details->language,
                 'wallet'              => $user_details->wallet,
@@ -1185,6 +1186,8 @@ class Api extends MY_Controller {
         $language       = $this->input->post('language');
         $about          = $this->input->Post('about');
         $skills         = $this->input->Post('skills');
+
+        $link           = $this->input->Post('link');
         
         $this->formValidation("User Id",$user_id,"required");
         
@@ -1294,6 +1297,8 @@ class Api extends MY_Controller {
                         'about'=>$about,
                         
                         'skills'=>$skills,
+
+                        'profile_link'=>$link,
                         
                         'updated_at'=>date('Y-m-d H:i:s'),
                     );
@@ -3447,8 +3452,6 @@ class Api extends MY_Controller {
 
                 $orderList=$this->Api_model->OrderList(array('type'=>'1','product_id'=>$value['id']))->row();
                 
-                var_dump("---------------------------");
-                var_dump($orderList);
                 if($orderList != NULL)
                 {
                     $order_id=$orderList->id;
@@ -3600,8 +3603,6 @@ class Api extends MY_Controller {
                 }
                 if($value['status']==2)
                 {
-                    var_dump("rbot=-=-=-=-=-=-=-=-=-=-=");
-                    var_dump($sellerRatingList);
                     $publishgigList[]=[
                     
                         'user_id'=>$value['user_id'],

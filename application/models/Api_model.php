@@ -265,7 +265,6 @@ class Api_model extends CI_Model
     function giglistSearch($condition = array(), $search_key = '', $filter = array())
     {
         $this->db->join('gig_list', 'gig_list.user_id=app_user.id');
-        //print_r($condition);die("==");
         $this->db->where($condition);
         if ($search_key != "")
         {
@@ -501,6 +500,8 @@ class Api_model extends CI_Model
     {
         $this->db->where($condition);
         $this->db->order_by('id', 'desc');
+        $query= $this->db->get('orders');
+        $ret = $query->row();
         return $this->db->get('orders');
     }
     
