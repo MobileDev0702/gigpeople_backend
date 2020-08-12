@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'gigpeople',
+	'hostname' => 'gigpeople.com',
+	'username' => 'donald_gigpeople',
+	'password' => 'donal@gigpeople',
+	'database' => 'gig_people',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
