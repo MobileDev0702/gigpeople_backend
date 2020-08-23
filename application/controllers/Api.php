@@ -15,7 +15,6 @@ class Api extends MY_Controller {
 
     function signup()
     {
-        
         $email_id       = $this->input->post('email_id');
         $first_name     = $this->input->post('first_name');
         $last_name      = $this->input->post('last_name');
